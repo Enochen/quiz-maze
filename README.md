@@ -1,0 +1,2 @@
+# quiz-maze
+Psych project
