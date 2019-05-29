@@ -61,17 +61,17 @@
         var gamebutton = document.getElementsByClassName("gamebutton")[0];
 
         // When the user clicks the button, open the modal
-        modelfunwrong = function() {
-            console.log("func called")
+        modelfunwrong = function(i) {
             modal.style.display = "block";
             x = document.querySelector(".gamehead");
             x.textContent = "Wrong answer"
             y = document.querySelector(".gamebutton");
             y.textContent = "Keep Going!";
+            z = document.querySelector("#a"+i);
+            z.style.textDecoration = "line-through";
         }
         
         modelfungo = function() {
-            console.log("func called")
             modal.style.display = "block";
             x = document.querySelector(".gamehead");
             x.textContent = "Game Over";
@@ -83,7 +83,6 @@
         }
 
         modelfunwin = function() {
-            console.log("func called")
             modal.style.display = "block";
             x = document.querySelector(".gamehead");
             x.textContent = "Congrats! You Win"
@@ -290,8 +289,6 @@
                 }
                 
                 this.answers = this.shuffle(this.answers);
-                console.log(this.question);
-                console.log(this.answers);
             }
             
             this.shuffle = function (array) {
@@ -551,7 +548,7 @@
                     }
                     else
                     {
-                        modelfunwrong();
+                        modelfunwrong(0);
                         return 0;
                     }
                 }
@@ -564,7 +561,7 @@
                     }
                     else
                     {
-                        modelfunwrong();
+                        modelfunwrong(1);
                         return 0;
                     }
                 }
@@ -577,7 +574,7 @@
                     }
                     else
                     {
-                        modelfunwrong();
+                        modelfunwrong(2);
                         return 0;
                     }
                 }
@@ -622,7 +619,7 @@
             setupMaze(JSON.parse(this.responseText));
 		  }
 		};
-		//xmlhttp.open("GET", "https://pastebin.com/raw/qQn2jXnK", true);
+		//xmlhttp.open("GET", "https://cors-anywhere.herokuapp.com/https://pastebin.com/raw/qQn2jXnK", true);
 		xmlhttp.open("GET", "quiz.json", true);
 		xmlhttp.send();
 
